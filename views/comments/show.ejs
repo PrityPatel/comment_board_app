@@ -6,22 +6,10 @@
 <body class="container">
   <% include ../partials/nav %>
 
-  <div class="row">
-    <section class="comments col-xs-6 col-xs-offset-3 text-center">
-      <ul class="list-unstyled">
-        <% comments.forEach(function(comment) { %>
-          <li>
-            <h4>
-              <a href="/comments/<%= comment.id %>">
-                <strong><%= comment.text %></strong>
-              </a>
-              <em>—<%= comment.username %></em>
-            </h4>
-          </li>
-        <% }) %>
-      </ul>
-    </section>
-  </div>
+  <section class="comment text-center">
+    <h3><strong><%= comment.text %></strong></h3>
+    <h4><em>—<%= comment.username %></em></h4>
+  </section>
 
   <br>
 

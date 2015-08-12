@@ -16,6 +16,23 @@ var index = function(req, res, next) {
     });
 };
 
+var show = function(req, res, next) {
+  Comment
+    .findById(req.params.id)
+    .then(
+      function(comment) {
+        res.render(
+          'comments/show',
+          {
+            comment: comment,
+            user:    req.user
+        });
+      }, function(err) {
+        return next(err);
+    });
+};
+
 module.exports = {
-  index: index
+  index: index,
+  show:  show
 };
