@@ -4,6 +4,7 @@ var router = express.Router();
 
 var usersController    = require('../controllers/usersController');
 var sessionsController = require('../controllers/sessionsController');
+var commentsController = require('../controllers/commentsController');
 
 /*
  * Passport auth helpers.
