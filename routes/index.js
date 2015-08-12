@@ -39,4 +39,6 @@ router.get( '/login',  sessionsController.new);
 router.post('/login',  authenticateUser, sessionsController.create);
 router.get( '/logout', sessionsController.destroy);
 
+router.get( '/comments', commentsController.index);
+
 module.exports = router;

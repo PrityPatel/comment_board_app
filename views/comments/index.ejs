@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../partials/head %>
+
+<body class="container">
+  <% include ../partials/nav %>
+
+  <ul>
+    <% comments.forEach(function(comment) { %>
+      <li><strong><%= comment.text %></strong> <em>—<%= comment.username %></em></li>
+    <% }) %>
+  </ul>
+</body>
+</html>
