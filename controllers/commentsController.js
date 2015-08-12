@@ -5,7 +5,12 @@ var index = function(req, res, next) {
     .find({})
     .then(
       function(comments) {
-        res.render('comments/index', {comments: comments});
+        res.render(
+          'comments/index',
+          {
+            comments: comments,
+            user:     req.user
+        });
       }, function(err) {
         return next(err);
     });

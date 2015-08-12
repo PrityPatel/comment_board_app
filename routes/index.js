@@ -24,9 +24,7 @@ var isLoggedIn = function(req, res, next) {
  * Define routes.
  */
 
-router.get('/', function (req, res) {
-  res.render('index', {user: req.user});
-});
+router.get('/', commentsController.index);
 
 router.get('/secret', isLoggedIn, function (req, res) {
   res.render('secret', {user: req.user});

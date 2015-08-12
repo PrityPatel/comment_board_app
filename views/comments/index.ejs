@@ -6,10 +6,30 @@
 <body class="container">
   <% include ../partials/nav %>
 
-  <ul>
-    <% comments.forEach(function(comment) { %>
-      <li><strong><%= comment.text %></strong> <em>—<%= comment.username %></em></li>
-    <% }) %>
-  </ul>
+  <section class="comments">
+    <ul>
+      <% comments.forEach(function(comment) { %>
+        <li><strong><%= comment.text %></strong> <em>—<%= comment.username %></em></li>
+      <% }) %>
+    </ul>
+  </section>
+
+  <br>
+
+  <div class="row text-center">
+    <div class="panel panel-default col-xs-4 col-xs-offset-4">
+      <div class="panel-body">
+        <% if (user) { %>
+          <p>You are currently logged in as<br><strong><%= user.name %></strong></p>
+          <a href="/logout" class="btn btn-danger">Logout</a>
+        <% } else { %>
+          <a href="/login" class="btn btn-primary">Login</a>
+          <a href="/register" class="btn btn-info">Register</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+
 </body>
+
 </html>
