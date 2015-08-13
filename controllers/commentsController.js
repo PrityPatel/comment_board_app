@@ -32,7 +32,22 @@ var show = function(req, res, next) {
     });
 };
 
+var create = function(req, res, next) {
+  var newComment = req.body.comment;
+  newComment.username = 'Anon';
+
+  Comment
+    .create(newComment)
+    .then(
+      function(comment) {
+        res.redirect('/comments/' + comment.id);
+      }, function(err) {
+        return next(err);
+    });
+};
+
 module.exports = {
-  index: index,
-  show:  show
+  index:  index,
+  show:   show,
+  create: create
 };

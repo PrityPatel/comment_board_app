@@ -10,14 +10,12 @@
     <section class="comments col-xs-6 col-xs-offset-3 text-center">
       <ul class="list-unstyled">
         <% comments.forEach(function(comment) { %>
-          <li>
-            <h4>
+          <li><h4>
               <a href="/comments/<%= comment.id %>">
                 <strong><%= comment.text %></strong>
               </a>
               <em>—<%= comment.username %></em>
-            </h4>
-          </li>
+          </h4></li>
         <% }) %>
       </ul>
     </section>
@@ -25,8 +23,22 @@
 
   <br>
 
+  <div class="row">
+    <div class="panel panel-default col-xs-6 col-xs-offset-3">
+      <form class="panel-body" action="/comments" method="POST">
+        <div class="form-group">
+          <label for="comment[text]">New Comment</label>
+          <input type="text" class="form-control" id="comment-text" name="comment[text]">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <br>
+
   <div class="row text-center">
-    <div class="panel panel-default col-xs-4 col-xs-offset-4">
+    <div class="panel panel-default col-xs-6 col-xs-offset-3">
       <div class="panel-body">
         <% if (user) { %>
           <p>You are currently logged in as<br><strong><%= user.name %></strong></p>
