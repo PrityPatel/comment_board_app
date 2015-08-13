@@ -34,7 +34,7 @@ var show = function(req, res, next) {
 
 var create = function(req, res, next) {
   var newComment = req.body.comment;
-  newComment.username = 'Anon';
+  newComment.username = req.user.name;
 
   Comment
     .create(newComment)
